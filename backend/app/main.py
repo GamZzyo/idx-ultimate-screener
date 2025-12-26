@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from scanner import scan_all
+from app.scanner import scan_all
 
 app=FastAPI(title="IDX Ultimate Screener")
 
