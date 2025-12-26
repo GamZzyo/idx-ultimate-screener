@@ -7,7 +7,13 @@ def scan_all():
     res=[]
     for t in TICKERS:
         df=yf.download(t,period="6mo",progress=False)
-        c=df["Close"].dropna().tolist()
+        close_series = df["Close"]
+
+# jika Close berupa DataFrame (multi-index), ambil kolom pertama
+if hasattr(close_series, "columns"):
+    close_series = close_series.iloc[:, 0]
+
+c = close_series.dropna().to_list()
         if len(c)<60: continue
         ma20=sma(c,20); ma50=sma(c,50)
         f=fibo(max(c),min(c))
