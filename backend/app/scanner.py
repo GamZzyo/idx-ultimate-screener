@@ -1,5 +1,5 @@
 import yfinance as yf
-from app.indicators import sma, rsi, fibo
+from indicators import sma, rsi, fibo
 
 TICKERS=["BBCA.JK","BBRI.JK","BMRI.JK","TLKM.JK","ANTM.JK"]
 
